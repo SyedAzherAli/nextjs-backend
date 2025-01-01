@@ -16,10 +16,22 @@ export async function POST(request) {
 export async function GET() {
     try {
         await connectMongoDB();
-        const topics = await Topic.find();
-        return NextResponse.json({ topics });
+        const tasks = await Task.find();
+        return NextResponse.json({ tasks });
     } catch (error) {
-        console.error("Error retrieving topics:", error);
-        return NextResponse.json({ error: "Failed to retrieve topics" }, { status: 500 });
+        console.error("Error retrieving tasks:", error);
+        return NextResponse.json({ error: "Failed to retrieve tasks" }, { status: 500 });
     }
 }
+export async function DELETE(request) {
+    try {
+        const id = request.nextUrl.searchParams.get("id");
+        await connectMongoDB();
+        await Task.findByIdAndDelete(id);
+        return NextResponse.json({ message: "Task deleted" }, { status: 200 });
+    } catch (error) {
+        console.error("Error deleting task:", error);
+        return NextResponse.json({ error: "Failed to delete task" }, { status: 500 });
+    }
+}
+
