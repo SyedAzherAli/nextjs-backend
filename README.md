@@ -1,6 +1,6 @@
 # Task Manager
 
-![](https://cdn.leonardo.ai/users/36826262-c089-4c96-b55a-8ad7bcfb2608/generations/51bebf39-e37c-4eb9-ac0f-33b025ba6c66/Leonardo_Phoenix_10_Create_a_cover_image_for_a_devto_article_t_3.jpg)
+![](https://i.pinimg.com/736x/0a/f6/91/0af691fae0ee2dce09474ced875ace96.jpg)
 
 ## Overview
 
