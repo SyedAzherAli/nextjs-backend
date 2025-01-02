@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Task Manager
+
+![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUNOZ-pPuEpwE8v9GvjdzOljJjm4annBA1-A&s)
+
+## Overview
+
+This project is a simple task manager application focusing  exclusively on the backend using Next.js and MongoDB. It involves  creating robust RESTful APIs that facilitate essential CRUD (Create,  Read, Update, Delete) operations for managing tasks. Each task includes  key attributes such as a title and a description. Users will be able to  create new tasks, view existing ones, update task details, and delete  tasks as needed. We will utilize Postman to test our APIs and ensure  their functionality throughout the development process.
 
 ## Getting Started
 
-First, run the development server:
+To get started with this project, follow the steps below:
+
+## Prerequisites
+
+ Ensure you have [Node.js](https://nodejs.org/en/download) and npm (Node Package Manager) installed on your computer.
+
+## Installation
+
+ **Clone the Repository**:
+
+```bash
+git clone https://github.com/hezronokwach/nextjs-backend.git
+cd nextjs-backend
+```
+
+**Install Dependencies**:
+ Run the following command to install all necessary dependencies:
+
+```bash
+npm install
+```
+
+**Create Environment Variables**:
+ Create a `.env` file in the root directory of your project. Add the following line to the `.env` file, replacing `<db_password>` with your actual MongoDB password:
+
+```bash
+MONGODB_URI=mongodb+srv://<username>:<db_password>@cluster0.tmgen.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+```
+
+## Running the Application
+
+To run your Next.js application, execute the following command in your terminal:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+By default, the Next.js server will run on `http://localhost:3000`. You can view your application by opening this address in your web browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Testing with Postman
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+You can use Postman to test the API endpoints for creating,  reading, updating, and deleting tasks. This will help ensure that all  functionalities are working as expected.
 
-## Learn More
+## Contribution
 
-To learn more about Next.js, take a look at the following resources:
+Contributions to this project are welcome! If you would like to  contribute, please feel free to fork the repository and submit a pull  request with your changes. You can also report issues or suggest  features by opening an issue in the GitHub repository.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contact
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+If you have any questions or need further assistance, feel free to reach out via email at [hezronokwach@gmail.com](mailto:hezronokwach@gmail.com).
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
