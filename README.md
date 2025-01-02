@@ -1,6 +1,6 @@
 # Task Manager
 
-![](https://i.pinimg.com/736x/0a/f6/91/0af691fae0ee2dce09474ced875ace96.jpg)
+![](https://i.pinimg.com/736x/d9/f4/64/d9f464c125853ade7a3e02133bcd6759.jpg)
 
 ## Overview
 
