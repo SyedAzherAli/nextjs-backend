@@ -13,7 +13,7 @@ permissions:
 
 env:
   AZURE_WEBAPP_NAME: Nextjs-backend-application   # Set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'        # Path to your web app project
+  AZURE_WEBAPP_PACKAGE_PATH: '.'                  # Path to your web app project
   NODE_VERSION: '22'                              # Node.js version
 
 jobs: 
