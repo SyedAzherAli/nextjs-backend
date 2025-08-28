@@ -1,10 +1,8 @@
 name: Build & Deploy to Azure App Service
 
 on:
- # push:
+  #push:
     #branches: [ main ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
 
 permissions:
@@ -12,46 +10,47 @@ permissions:
   contents: read
 
 env:
-  AZURE_WEBAPP_NAME: Nextjs-backend-application   # Set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.'                  # Path to your web app project
-  NODE_VERSION: '22'                              # Node.js version
+  AZURE_WEBAPP_NAME: Nextjs-backend-application  # Set this to your application's name
+  NODE_VERSION: '22'                             # Node.js version
 
-jobs: 
-
+jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout GitHub Action
-        uses: actions/checkout@main
-
-      - name: Create .env
-        run: |
-          echo "MONGODB_URL=${{ secrets.MONGODB_URL }}" >> .env               
-
-      - uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        uses: actions/checkout@v4
 
       - name: Setup Node ${{ env.NODE_VERSION }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
 
-      - name: npm install, build, and test
+      - name: Create .env for build process
+        run: |
+          echo "MONGODB_URL=${{ secrets.MONGODB_URL }}" >> .env
+
+      - name: npm install and build
         run: |
           npm install
           npm run build --if-present
-        working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+          
+      - name: Copy static assets to standalone folder
+        run: |
+          cp -r public .next/standalone/
+          cp -r .next/static .next/standalone/.next/
+
+      - name: Azure Login
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
-          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-
+          package: './.next/standalone'
+          
       - name: Azure Logout
         run: az logout
-
-  
