@@ -1,8 +1,8 @@
 name: Build & Deploy to Azure App Service
 
 on:
-  push:
-    branches: [ main ]
+  #push:
+    #branches: [ main ]
   workflow_dispatch:
 
 permissions:
@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 env:
-  AZURE_WEBAPP_NAME: Nextjs-backend              # Set this to your application's name
+  AZURE_WEBAPP_NAME: nextjs-backend-application  # Set this to your application's name
   NODE_VERSION: '22'                             # Node.js version
 
 jobs:
