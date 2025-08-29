@@ -27,7 +27,7 @@ jobs:
 
       - name: Create .env for build process
         run: |
-          echo "MONGODB_URL=${{ secrets.MONGODB_URL }}" >> .env
+          echo "MONGODB_URI=${{ secrets.MONGODB_URI }}" >> .env
 
       - name: npm install and build
         run: |
