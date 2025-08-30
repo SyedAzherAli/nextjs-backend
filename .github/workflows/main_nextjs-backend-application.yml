@@ -36,7 +36,6 @@ jobs:
           
       - name: Copy static assets to standalone folder
         run: |
-          # cp -r public .next/standalone/
           cp -r .next/static .next/standalone/.next/
 
       - name: Azure Login
